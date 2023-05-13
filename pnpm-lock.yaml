@@ -8,7 +8,7 @@ importers:
     dependencies:
       alova: registry.npmmirror.com/alova/2.4.1
 
-  packages/be:
+  projects/be:
     specifiers:
       koa: ^2.14.2
       koa-bodyparser: ^4.4.0
@@ -23,7 +23,7 @@ importers:
     devDependencies:
       nodemon: registry.npmmirror.com/nodemon/2.0.22
 
-  packages/lit-ts:
+  projects/lit-ts:
     specifiers:
       lit: ^2.6.1
       typescript: ^5.0.2
@@ -34,7 +34,7 @@ importers:
       typescript: registry.npmmirror.com/typescript/5.0.4
       vite: registry.npmmirror.com/vite/4.3.5
 
-  packages/vue3-ts:
+  projects/vue3-ts:
     specifiers:
       '@vitejs/plugin-vue': ^4.1.0
       typescript: ^5.0.2
