@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev:vue3": "pnpm --filter @swlws/vue3-ts dev",
     "dev:lit": "pnpm --filter @swlws/lit-ts dev",
     "dev:be": "pnpm --filter @swlws/be dev"

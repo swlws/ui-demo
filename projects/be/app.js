@@ -3,12 +3,10 @@ const app = new Koa();
 
 const bodyparser = require("koa-bodyparser");
 
-// app.use(async (ctx) => {
-//   ctx.body = "Hello World";
-// });
+// app.use(async (ctx) => { ctx.body = "Hello World"; });
 
 app.on("error", (err) => {
-  log.error("server error", err);
+  console.error("server error", err);
 });
 
 // 参数解析
@@ -19,6 +17,7 @@ app.use(require("koa-static")(__dirname + "public"));
 
 // 注册路由
 const router = require("./routers/index");
+console.log(JSON.stringify(router));
 app.use(router.routes(), router.allowedMethods());
 
 const host = "127.0.0.1";
