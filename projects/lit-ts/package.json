@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^2.6.1"
+    "lit": "^2.6.1",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "typescript": "^5.0.2",

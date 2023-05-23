@@ -6,11 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
+    <!-- <s-element> </s-element> -->
+
+    <!-- <s-vue-demo></s-vue-demo> -->
+
+    <script>
+      const se = document.createElement("s-element");
+      const sv = document.createElement("s-vue-demo");
+      se.appendChild(sv);
+
+      document.body.appendChild(se);
+
+      setTimeout(() => {
+        console.log("-----");
+        se.remove();
+      }, 1000);
+
+      setTimeout(() => {
+        console.log("-----");
+        se.count = 1000;
+      }, 2000);
+
+      setTimeout(() => {
+        console.log("-----");
+        document.body.appendChild(se);
+      }, 3000);
+    </script>
   </body>
 </html>
