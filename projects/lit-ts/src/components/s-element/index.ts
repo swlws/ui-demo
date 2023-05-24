@@ -28,10 +28,21 @@ export class SElement extends LitElement {
 
   render() {
     return html`
-      <div class="card">lit component, count: ${this.count}</div>
+      <div class="card" @click=${this._click}>
+        lit component, count: ${this.count}
+      </div>
 
       <slot></slot>
     `;
+  }
+
+  _click() {
+    const options = {
+      detail: { msg: "this is test" },
+      bubbles: true,
+      composed: false,
+    };
+    this.dispatchEvent(new CustomEvent("test", options));
   }
 
   connectedCallback(): void {

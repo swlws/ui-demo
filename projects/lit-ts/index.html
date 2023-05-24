@@ -13,11 +13,18 @@
     <button onclick="test100(true)">模拟100次移除/加载 (加锁)</button>
     <button onclick="test100(false)">模拟100次移除/加载 (不加锁)</button>
 
-    <!-- <s-element> </s-element> -->
+    <s-element id="box"> </s-element>
+
+    <div>-----------</div>
 
     <!-- <s-vue-demo></s-vue-demo> -->
 
     <script>
+      const box = document.querySelector("#box");
+      box.addEventListener("test", function (e) {
+        console.log(e);
+      });
+
       const ele = document.createElement("s-element");
       const vdemo = document.createElement("s-vue-demo");
       ele.appendChild(vdemo);
