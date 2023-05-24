@@ -28,29 +28,38 @@ export class SElement extends LitElement {
 
   render() {
     return html`
-      <div class="card">
-        <button @click=${this._onClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-      <p class="read-the-docs">${this.docsHint}</p>
+      <div class="card">lit component, count: ${this.count}</div>
 
       <slot></slot>
     `;
   }
 
-  private _onClick() {
-    this.count++;
-  }
-
   connectedCallback(): void {
     super.connectedCallback();
-    console.log(this.tagName, "call connectedCallback", this.isConnected);
+    console.log(
+      this.tagName,
+      "call connectedCallback",
+      `isConnected: ${this.isConnected}`
+    );
   }
 
   disconnectedCallback(): void {
     super.connectedCallback();
     console.log(this.tagName, "call disconnectedCallback");
+  }
+
+  protected shouldUpdate(
+    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
+  ): boolean {
+    const rt = super.shouldUpdate(_changedProperties);
+    console.log(this.tagName, "call shouldUpdate");
+    return rt;
+  }
+
+  protected willUpdate(
+    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
+  ): void {
+    console.log(this.tagName, "call willUpdate");
   }
 
   protected update(

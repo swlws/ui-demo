@@ -9,31 +9,57 @@
     <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
+    <button onclick="lifecycle()">lifecycle</button>
+    <button onclick="test100(true)">模拟100次移除/加载 (加锁)</button>
+    <button onclick="test100(false)">模拟100次移除/加载 (不加锁)</button>
+
     <!-- <s-element> </s-element> -->
 
     <!-- <s-vue-demo></s-vue-demo> -->
 
     <script>
-      const se = document.createElement("s-element");
-      const sv = document.createElement("s-vue-demo");
-      se.appendChild(sv);
+      const ele = document.createElement("s-element");
+      const vdemo = document.createElement("s-vue-demo");
+      ele.appendChild(vdemo);
+      document.body.appendChild(ele);
 
-      document.body.appendChild(se);
+      const sleep = (t) =>
+        new Promise((r) => {
+          setTimeout(() => {
+            r();
+          }, t * 1000);
+        });
 
-      setTimeout(() => {
-        console.log("-----");
-        se.remove();
-      }, 1000);
+      async function lifecycle() {
+        window.lock = false;
 
-      setTimeout(() => {
-        console.log("-----");
-        se.count = 1000;
-      }, 2000);
+        console.log("卸载父节点");
+        ele.remove();
 
-      setTimeout(() => {
-        console.log("-----");
-        document.body.appendChild(se);
-      }, 3000);
+        console.log("子节点更新");
+        await sleep(1);
+        vdemo.count = 1000;
+
+        await sleep(1);
+        console.log("父节点更新");
+        ele.count = 1000;
+
+        await sleep(1);
+        console.log("重新挂载父节点");
+        document.body.appendChild(ele);
+      }
+
+      async function test100(lock) {
+        window.lock = lock;
+
+        let len = 100;
+        while (len--) {
+          await sleep(0.05);
+
+          vdemo.remove();
+          ele.appendChild(vdemo);
+        }
+      }
     </script>
   </body>
 </html>
