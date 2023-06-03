@@ -6,6 +6,9 @@
     <nav>
       <router-link to="/request">Request</router-link>
     </nav>
+    <nav>
+      <router-link to="/timeline">Time Line</router-link>
+    </nav>
   </header>
 
   <main>

@@ -53,7 +53,7 @@ export class SVueDemo extends LitElement {
   }
 
   disconnectedCallback(): void {
-    super.disconnectedCallback();
+    super.disconnectedCallback(); 
     console.log(
       this.tagName,
       "call disconnectedCallback",
