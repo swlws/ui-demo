@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev:vue3": "pnpm --filter @swlws/vue3-ts dev",
+    "dev:r": "pnpm --filter @swlws/react-ts dev",
     "dev:lit": "pnpm --filter @swlws/lit-ts dev",
-    "dev:be": "pnpm --filter @swlws/be dev"
+    "dev:be": "pnpm --filter @swlws/be dev",
+    "dev:nest": "pnpm --filter @swlws/be-nest start:dev"
   },
   "keywords": [],
   "author": "",
