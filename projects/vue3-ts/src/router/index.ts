@@ -15,6 +15,10 @@ const router = createRouter({
       path: "/timeline",
       component: () => import("@/pages/timeline/index.vue"),
     },
+    {
+      path: "/slot",
+      component: () => import("@/pages/slot/index.vue"),
+    },
   ],
 });
 

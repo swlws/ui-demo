@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node ./scripts/dev.mjs",
     "dev:vue3": "pnpm --filter @swlws/vue3-ts dev",
     "dev:r": "pnpm --filter @swlws/react-ts dev",
     "dev:lit": "pnpm --filter @swlws/lit-ts dev",
@@ -17,6 +18,8 @@
     "alova": "^2.4.1"
   },
   "devDependencies": {
+    "execa": "^7.1.1",
+    "inquirer": "^9.2.7",
     "sass": "^1.62.1"
   }
 }
